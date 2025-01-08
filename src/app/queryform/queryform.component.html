@@ -1,0 +1,209 @@
+
+<section class="bg-light top-space vh">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="query-form">
+                    <h1 class="title">Add Shiping Address and Details</h1>
+                
+                    <form [formGroup]="queryForm" (ngSubmit)="sendQuery(queryForm.value)" class="row gutter-x">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="name">Patient Name</label>
+                                <input type="text" class="form-control"  formControlName="name">
+                                @if(formSubmitted || queryForm.controls.name.touched){
+
+                                    @if(queryForm.controls.name.errors?.required){
+                                        <span class="error">Enter your name</span>
+                                    }
+                                } 
+                                @if(queryForm.controls.name.errors?.maxlength){
+                                    <span class="error">Enter maximum 20 alphabets </span>
+                                }
+
+                                @if(queryForm.controls.name.errors?.noFirstSpace){
+                                    <span class="error d-block">Don't use first character Space inside field</span>        
+                                }
+                                @if(queryForm.controls.name.errors?.minlength){
+                                    <span class="error d-block">Enter minmum 3 alphabets</span>                            
+                                }
+  
+                                @if(queryForm.controls.name.errors?.pattern){
+                                    <span class="error">Enter only alphabets</span>                          
+                                }
+                               
+                            </div>
+                        </div> 
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="email">Email Id</label>
+                                <input type="email" class="form-control"  formControlName="email">
+                                @if(formSubmitted || queryForm.controls.email.touched){
+                                    @if(queryForm.controls.email.errors?.required){
+                                        <span class="error">Enter email id</span>
+                                    }
+                                }
+                              
+                        </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="phone">Contact Number</label>
+                                <input type="tel" class="form-control" formControlName="phone" maxlength="10" (keypress)="numberOnly($event)">
+                                @if(formSubmitted || queryForm.controls.phone.touched){
+                                    @if(queryForm.controls.phone.errors?.required){
+                                        <span class="error">Enter your contact number</span>
+                                    }
+                                }
+                                @if(queryForm.controls.phone.errors?.minlength){
+                                    <span class="error">Enter minmum  10 digit number</span>                            
+                                }
+                                @if(queryForm.controls.phone.errors?.maxlength){
+                                    <span class="error">Enter maximum  10 digit number</span>
+                                }
+                        </div>
+                       </div>
+                       <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="whatsapp">WhatsApp Number</label>
+                                <input type="tel" class="form-control" formControlName="whatsapp"  maxlength="10"  (keypress)="numberOnly($event)">
+                                @if(formSubmitted || queryForm.controls.whatsapp.touched){
+                                    @if(queryForm.controls.whatsapp.errors?.required){
+                                        <span class="error">Enter your whatsapp number</span>
+                                    }
+                                }
+                                @if(queryForm.controls.whatsapp.errors?.minlength){
+                                    <span class="error">Enter minmum  10 digit number</span>                            
+                                }
+                                @if(queryForm.controls.whatsapp.errors?.maxlength){
+                                    <span class="error">Enter maximum  10 digit number</span>
+                                }
+                            </div>
+                       </div>
+                       <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="hospital">Hospital/Clinic Name</label>
+                                <input type="text" class="form-control" formControlName="hospital">
+                                @if(formSubmitted || queryForm.controls.hospital.touched){
+                                    @if(queryForm.controls.hospital.errors?.required){
+                                        <span class="error">Enter your whatsapp number</span>
+                                    }
+                                }
+                                @if(queryForm.controls.hospital.errors?.noFirstSpace){
+                                    <span class="error d-block">Don't use first character Space inside field</span>        
+                                }
+                            </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="uploadslip">Upload Priscription <small class="text-light">(Dr. Medicine Slip)</small></label>
+                            <input  type="file" class="form-control" formControlName="uploadslip" (change)="onFilechange($event)">
+                             @if(formSubmitted || queryForm.controls.uploadslip.touched) {
+                                @if(queryForm.controls.uploadslip.errors?.required){
+                                   <span class="error">Upload your priscription slip</span>
+                                }
+                             } 
+
+                             @if(queryForm.controls.uploadslip.errors?.fileSize){
+                               <span class="error  d-block"> The file size exceeds the maximum limit of {{maxFileSize / (1024 * 1024)}}</span>
+                             } 
+
+                             @if(queryForm.controls.uploadslip.errors?.pattern){
+                                <span class="error d-block"> Invalid image extension. Allowed extensions: jpg, jpeg, png,webp,pdf</span>        
+                            }
+                        </div>                         
+                      </div>
+                      <div class="col-lg-12">
+                       <div class="form-group">
+                            <label for="address">Your Address</label>
+                            <textarea class="form-control textarea" formControlName="address"></textarea>
+                            @if(formSubmitted || queryForm.controls.address.touched){
+                                @if(queryForm.controls.address.errors?.required){
+                                    <span class="error">Enter your address</span>
+                                }
+                            }
+                            @if(queryForm.controls.address.errors?.noFirstSpace){
+                                <span class="error d-block">Don't use first character Space inside field</span>        
+                            }
+                      </div>
+                      </div>
+
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="currState">Select State</label>
+                             <select id="curr_state" formControlName="currState" class="form-select text-body rounded-0" aria-label="Select State" (change)="selectState($event)">
+                                @for (state of stateType; track $index) {  
+                                    <option  value="{{state}}"> {{ state}} </option>
+                                }
+                              </select>
+                             @if(formSubmitted || queryForm.controls.currState.touched) {
+                                @if(queryForm.controls.currState.errors?.required){
+                                   <span class="error">Select your state</span>
+                                }
+                             } 
+                        </div>
+                      </div>
+
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="currCity">Select City</label>
+                            <select id="curr_city" formControlName="currCity"  class="form-select text-body rounded-0"  aria-label="Select City" (change)="selectCity($event)">
+                                @for (city of cities; track $index) { 
+                                     <option value="{{city}}">{{city}}</option>
+                                }
+                              </select>
+                             @if(formSubmitted || queryForm.controls.currCity.touched) {
+                                @if(queryForm.controls.currCity.errors?.required){
+                                   <span class="error">Select your city</span>
+                                }
+                             } 
+                        </div>
+                      </div>
+
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="pincode">Pincode</label>
+                            <input type="tel" class="form-control" formControlName="pincode" (keypress)="numberOnly($event)">
+                             @if(formSubmitted || queryForm.controls.pincode.touched) {
+                                @if(queryForm.controls.pincode.errors?.required){
+                                   <span class="error">Enter your pincode number</span>
+                                }
+                             } 
+                             @if(queryForm.controls.pincode.errors?.minlength){
+                                <span class="error">Enter minmum  6 digit number</span>                            
+                             }
+                             @if(queryForm.controls.pincode.errors?.maxlength){
+                                <span class="error">Enter maximum  6 digit number</span>
+                             }
+                        </div>
+                      </div>
+                      
+                      <div class="col-lg-12">
+                      <div class="form-group">
+                            <input type="submit" value="SUBMIT" class="btn">
+                      </div>
+                      </div>
+
+                    </form>
+                    
+                </div>
+
+                
+            </div>
+  
+            <figure class="col-lg-4">
+                <img class="mb-3 prev" src={{images}} alt="profile">
+            </figure>
+        
+        </div>
+    </div>
+</section>
+
+@if(isLoading){
+    <div class="loading d-flex align-items-center justify-content-center">
+        <h3>Wait for data is sending...</h3>
+    </div>
+}
+
+
+
