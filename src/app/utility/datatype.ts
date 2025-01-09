@@ -11,3 +11,10 @@ export interface userData {
     currCity:string;
     pincode:string;
   }
+
+  export interface stateData {
+    // _id: string;
+    state: string;
+    city:string;
+
+  }

@@ -15,11 +15,15 @@ export class UserService {
   }
 
   sendQuery(data: userData) {
-    return this.http.post<userData>(`${this.baseUrl}/query`,data,{observe:'response'})
+    return this.http.post<userData>(`${this.baseUrl}/queries`,data,{observe:'response'})
+  }
+
+  getQuery() {
+    return this.http.get<userData[]>(`${this.baseUrl}/queries`)
   }
 
   states(){
-    return this.http.get(`${this.baseUrl}/places`);
+    return this.http.get<any>(`${this.baseUrl}/places`);
   }
 
   cities(){

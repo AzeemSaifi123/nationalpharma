@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Query = require('../models/query')
-const places = require('../models/places')
+const Queries = require('../models/queries')
 const multer = require('multer');
 const nodemailer = require('nodemailer');
 
@@ -30,7 +29,6 @@ const upload = multer({
     limits: {fileSize : 1024 * 1024 * 5}, // 5mb file size limit
     fileFilter: fileFilter,
    
-
   })
 
 }).single('uploadslip');
@@ -56,7 +54,7 @@ router.post('/',upload,(req,res,next)=>{
     // const { name } = req.body;
     // query.findOne({ email })
      
-    const query = new Query({
+    const query = new Queries({
         name:req.body.name,
         email:req.body.email,
         phone:req.body.phone,
@@ -83,7 +81,7 @@ const resetLink = "http://localhost:4200/queryform"
       from: 'adkhan9355@gmail.com', // sender mail
       to: [
         // { name: "Sharif Sahab", address: "adsaifee768@gmail.com" },
-        { name: `${query.name}`, address: "infowebmilky@gmail.com" },
+        { name: `${query.name}`, address: `${query.email}` },
       ], // reciever mail
       subject: "New Order",
       attachments: [{
@@ -133,7 +131,7 @@ const resetLink = "http://localhost:4200/queryform"
 
       .then(result=>{ 
         res.status(200).json({
-          query:result,
+          Queries:result,
           message:"Email sent successfully"
         });
         // res.status(200).send('Email sent successfully');
@@ -144,28 +142,43 @@ const resetLink = "http://localhost:4200/queryform"
         })
       })
 
-  
-  });
+});
 
 
-
- router.get('/',(req,res,next)=>{
-    places.find().then((document)=>{
-        console.log(document);     
-        res.status(200).json(
-            {    
-                message:"state fetched successfully",
-                places:document // data base name
-            }
-           )
-    })
-    .catch(err=>{
-      req.status(500).json({
-        error:err
+  router.get('/',(req,res,next)=>{
+      Queries.find().then((doc)=>{
+          console.log(doc);
+          res.status(201).json({
+            message:"Query fetched successfully",
+            queries:doc
+          })
+          
       })
-    })
+      .catch(err=>{
+        req.status(501).json({
+          error:err
+        })
+      })
+      
   });
 
+//   router.get('/',(req,res,next)=>{
+//     user.find().then((doc)=>{
+//         console.log(doc);
+//         res.status(200).json({
+//           message:"Query fetched successfully",
+//           user:doc
+//         })
+        
+//     })
+//     .catch(err=>{
+//       req.status(501).json({
+//         error:err
+//       })
+//     })
+    
+// });
 
 
+  
   module.exports = router;

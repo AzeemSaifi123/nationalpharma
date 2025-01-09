@@ -199,6 +199,33 @@
     </div>
 </section>
 
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+
+                    <ul class="queries">
+                         @for (que of queriesData; track $index){
+                            <li>
+                                <span>{{que.name}}</span>
+                                <span>{{que.email}}</span>
+                                <span>{{que.phone}}</span>
+                                <span>{{que.whatsapp}}</span>
+                                <span>{{que.hospital}}</span>
+                                <img width="100" src="{{que.uploadslip}}" alt="priscription">
+                                <span>{{que.address}}</span>
+                                <span>{{que.currState}}</span>
+                                <span>{{que.currCity}}</span>
+                                <span>{{que.pincode}}</span>
+                            
+                            </li>
+                        }
+                    </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
 @if(isLoading){
     <div class="loading d-flex align-items-center justify-content-center">
         <h3>Wait for data is sending...</h3>

@@ -30,22 +30,33 @@ export class QueryformComponent {
   maxFileSize:any = 5 * 1024 * 1024; // 5MB in bytes
   isLoading = false;
 
+  queriesData:any; 
+
   constructor(private formBuilder: FormBuilder,
     private router:Router,
     private userSer:UserService,
     private loaderService: LoaderService){
+
       this.userSer.states().subscribe((result:any)=>{
         // console.log("data",result['places']);
-        this.places = result['places'][0]['States'][0];    
-        this.stateType = Object.keys(result['places'][0]['States'][0]);   
+        this.places =  result['places'][0]['states'][0];    
+        this.stateType = Object.keys(result['places'][0]['states'][0]);   
       });
 
       this.loaderService.getLoading().subscribe((loading) => {
         this.isLoading = loading;
       });
+       
+      this.userSer.getQuery().subscribe((result:any) =>{
+          console.log(result,"orders")
+          this.queriesData = result['queries'];
+          console.log(result['queries'],"queries data")
+      });
+
   }
 
   ngOnInit(){
+
     this.queryForm = this.formBuilder.group({
       name: new FormControl('Azeem', [Validators.required,Validators.minLength(3), noFirstSpaceValidator, Validators.maxLength(20),Validators.pattern(/^[a-zA-Z ]*$/)]),
       email: new FormControl('', [Validators.required,Validators.email]),
@@ -62,13 +73,12 @@ export class QueryformComponent {
       currCity: new FormControl('',[Validators.required]),
       pincode: new FormControl('', [Validators.required,Validators.minLength(6), Validators.maxLength(6)]),
     });
+
   }
 
   
-
   onFilechange(event: any) {
-    // console.log(event.target.files[0])
-    debugger;
+ 
     this.fileToUpload = event.target.files[0];
     this.images = this.fileToUpload;
 
@@ -99,8 +109,6 @@ export class QueryformComponent {
   sendQuery(data:userData):void{
 
     this.formSubmitted = true;
-    // this.loading = true;
-    // this.loading = !this.loading;
 
     const formData:any = new FormData();
           formData.append('name', this.queryForm.get('name').value);
@@ -116,8 +124,6 @@ export class QueryformComponent {
 
     this.userSer.sendQuery(formData).subscribe((result:any)=>{ 
       if(this.queryForm.valid){ 
-        // this.loading = !this.loading;
-        // this.loading = false
         this.router.navigate(['thank-you'])   
       } 
     
