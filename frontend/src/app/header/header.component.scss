@@ -1,0 +1,17 @@
+.navbar{
+    background:rgba(255,255,255,.9);  box-shadow: 0 2px 4px rgba(0,0,0,.1); position: fixed; top:0; left: 0; right: 0; 
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    .navbar-brand{color: #113561; font-size: 16px; font-weight: 700; text-transform: uppercase;}
+    .navbar-nav{  
+        .nav-link{display: block;
+            padding-right: .5rem;
+            padding-left: .5rem;  color: #113561;
+            &.call{display: inline-flex; align-items: center; 
+                .icon{width: 36px; height:36px; border-radius: 100%;}
+                span{padding-left: 8px;}
+             }
+        } 
+    }
+}
+
