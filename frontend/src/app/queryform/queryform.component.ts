@@ -58,11 +58,11 @@ export class QueryformComponent {
   ngOnInit(){
 
     this.queryForm = this.formBuilder.group({
-      name: new FormControl('Azeem', [Validators.required,Validators.minLength(3), noFirstSpaceValidator, Validators.maxLength(20),Validators.pattern(/^[a-zA-Z ]*$/)]),
+      name: new FormControl('', [Validators.required,Validators.minLength(3), noFirstSpaceValidator, Validators.maxLength(20),Validators.pattern(/^[a-zA-Z ]*$/)]),
       email: new FormControl('', [Validators.required,Validators.email]),
       phone: new FormControl('', [Validators.required,Validators.minLength(10), Validators.maxLength(10)]),
-      whatsapp: new FormControl('9599006699', [Validators.required,Validators.minLength(10), Validators.maxLength(10)]),
-      hospital: new FormControl('Batra', [Validators.required, noFirstSpaceValidator]),
+      whatsapp: new FormControl('', [Validators.required,Validators.minLength(10), Validators.maxLength(10)]),
+      hospital: new FormControl('', [Validators.required, noFirstSpaceValidator]),
       uploadslip: new FormControl('',[
         Validators.required,
         Validators.pattern(/[^\s]+(.*?).(jpg|jpeg|png|gif|webp|pdf|JPG|JPEG|PNG|GIF|WEBP|PDF)$/),
