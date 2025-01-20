@@ -42,10 +42,6 @@ export class QueryformComponent {
         this.places =  result['places'][0]['states'][0];    
         this.stateType = Object.keys(result['places'][0]['states'][0]);   
       });
-
-      this.loaderService.getLoading().subscribe((loading) => {
-        this.isLoading = loading;
-      });
        
       this.userSer.getQuery().subscribe((result:any) =>{
           console.log(result,"orders")
@@ -122,12 +118,16 @@ export class QueryformComponent {
           formData.append('currCity', this.queryForm.get('currCity').value);
           formData.append('pincode', this.queryForm.get('pincode').value);
 
+          
+
+  if(this.queryForm.valid){ 
+    this.loaderService.getLoading().subscribe((loading) => {
+      this.isLoading = loading;
+    });
     this.userSer.sendQuery(formData).subscribe((result:any)=>{ 
-      if(this.queryForm.valid){ 
-        this.router.navigate(['thank-you'])   
-      } 
-    
+        this.router.navigate(['thank-you'])    
      });
+    } 
 
   }
 
