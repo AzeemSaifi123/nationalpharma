@@ -2,7 +2,9 @@
     background:rgba(255,255,255,.9);  box-shadow: 0 2px 4px rgba(0,0,0,.1); position: fixed; top:0; left: 0; right: 0; 
     padding-top: .5rem;
     padding-bottom: .5rem;
-    .navbar-brand{color: #113561; font-size: 16px; font-weight: 700; text-transform: uppercase;}
+    .navbar-brand{color: #113561; font-size: 14px; font-weight: 700; text-transform: uppercase;
+        img{max-width: 30px; margin-right: 4px;}
+    }
     .navbar-nav{  
         .nav-link{display: block;
             padding-right: .5rem;
@@ -12,6 +14,14 @@
                 span{padding-left: 8px;}
              }
         } 
+    }
+}
+
+@media(min-width:992px){
+    .navbar{
+        .navbar-brand{ font-size: 16px;
+            img{max-width: 40px;}
+        }
     }
 }
 

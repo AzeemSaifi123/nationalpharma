@@ -9,7 +9,7 @@
                     <form [formGroup]="queryForm" (ngSubmit)="sendQuery(queryForm.value)" class="row gutter-x">
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="name">Patient Name</label>
+                                <label>Patient Name</label>
                                 <input type="text" class="form-control"  formControlName="name">
                                 @if(formSubmitted || queryForm.controls.name.touched){
 
@@ -36,7 +36,7 @@
                         </div> 
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="email">Email Id</label>
+                                <label>Email Id</label>
                                 <input type="email" class="form-control"  formControlName="email">
                                 @if(formSubmitted || queryForm.controls.email.touched){
                                     @if(queryForm.controls.email.errors?.required){
@@ -48,7 +48,7 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="phone">Contact Number</label>
+                                <label>Contact Number</label>
                                 <input type="tel" class="form-control" formControlName="phone" maxlength="10" (keypress)="numberOnly($event)">
                                 @if(formSubmitted || queryForm.controls.phone.touched){
                                     @if(queryForm.controls.phone.errors?.required){
@@ -65,7 +65,7 @@
                        </div>
                        <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="whatsapp">WhatsApp Number</label>
+                                <label>WhatsApp Number</label>
                                 <input type="tel" class="form-control" formControlName="whatsapp"  maxlength="10"  (keypress)="numberOnly($event)">
                                 @if(formSubmitted || queryForm.controls.whatsapp.touched){
                                     @if(queryForm.controls.whatsapp.errors?.required){
@@ -82,7 +82,7 @@
                        </div>
                        <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="hospital">Hospital/Clinic Name</label>
+                                <label>Hospital/Clinic Name</label>
                                 <input type="text" class="form-control" formControlName="hospital">
                                 @if(formSubmitted || queryForm.controls.hospital.touched){
                                     @if(queryForm.controls.hospital.errors?.required){
@@ -96,7 +96,7 @@
                       </div>
                       <div class="col-lg-6">
                         <div class="form-group">
-                            <label for="uploadslip">Upload Priscription <small class="text-light">(Dr. Medicine Slip)</small></label>
+                            <label>Upload Priscription <small class="text-light">(Dr. Medicine Slip)</small></label>
                             <input  type="file" class="form-control" formControlName="uploadslip" (change)="onFilechange($event)">
                              @if(formSubmitted || queryForm.controls.uploadslip.touched) {
                                 @if(queryForm.controls.uploadslip.errors?.required){
@@ -115,7 +115,7 @@
                       </div>
                       <div class="col-lg-12">
                        <div class="form-group">
-                            <label for="address">Your Address</label>
+                            <label>Your Address</label>
                             <textarea class="form-control textarea" formControlName="address"></textarea>
                             @if(formSubmitted || queryForm.controls.address.touched){
                                 @if(queryForm.controls.address.errors?.required){
@@ -130,7 +130,7 @@
 
                       <div class="col-lg-6">
                         <div class="form-group">
-                            <label for="currState">Select State</label>
+                            <label>Select State</label>
                              <select id="curr_state" formControlName="currState" class="form-select text-body rounded-0" aria-label="Select State" (change)="selectState($event)">
                                 @for (state of stateType; track $index) {  
                                     <option  value="{{state}}"> {{ state}} </option>
@@ -146,7 +146,7 @@
 
                       <div class="col-lg-6">
                         <div class="form-group">
-                            <label for="currCity">Select City</label>
+                            <label>Select City</label>
                             <select id="curr_city" formControlName="currCity"  class="form-select text-body rounded-0"  aria-label="Select City" (change)="selectCity($event)">
                                 @for (city of cities; track $index) { 
                                      <option value="{{city}}">{{city}}</option>
@@ -162,7 +162,7 @@
 
                       <div class="col-lg-6">
                         <div class="form-group">
-                            <label for="pincode">Pincode</label>
+                            <label>Pincode</label>
                             <input type="tel" class="form-control" formControlName="pincode" (keypress)="numberOnly($event)">
                              @if(formSubmitted || queryForm.controls.pincode.touched) {
                                 @if(queryForm.controls.pincode.errors?.required){
