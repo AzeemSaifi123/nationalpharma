@@ -70,13 +70,6 @@ router.post('/',upload,(req,res,next)=>{
 
 
 const resetLink = "http://localhost:4200/queryform";
-const logo = "https://thenationalpharma.com/icons/logo-pharma.svg";
-const call = "https://thenationalpharma.com/icons/call.svg";
-   
-
-    // res.status(201).json({
-    //   message: 'query send successfully'
-    // });
 
     const mailOptions = {
       from: 'carethenationalpharma@gmail.com', // sender mail
