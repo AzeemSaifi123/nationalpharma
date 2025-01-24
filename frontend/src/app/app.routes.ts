@@ -7,12 +7,12 @@ export const routes: Routes = [
     {
         path: '',
         component: QueryformComponent,
-        title: 'queryform',
+        title: 'The National Pharma',
     },
     {
         path: 'queryform',
         component: QueryformComponent,
-        title: 'queryform',
+        title: 'The National Pharma',
     },
     {
         path:'thank-you',

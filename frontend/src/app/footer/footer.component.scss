@@ -1,1 +1,12 @@
-footer{padding: 10px 15px;}
+footer{padding: 10px 15px; margin-bottom: 54px;}
+span,a{display: block; padding-top:3px; padding-bottom: 3px; font-size: 10px; line-height: 14px;}
+.dev{border-top: 1px solid  #ddd;  opacity: .7;}
+.mail-icon{vertical-align: middle; max-width: 10px;}
+
+@media(min-width:576px){
+    footer{margin-bottom: 0; padding: 0;}
+    span,a{font-size: 14px; line-height: 22px; margin-bottom: 0;  padding-top:8px; padding-bottom: 8px;}
+    .mail{text-align: right;}
+    .dev{font-size: 12px;}
+    .mail-icon{max-width: 20px;}
+}

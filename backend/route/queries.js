@@ -38,11 +38,10 @@ const upload = multer({
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'adkhan9355@gmail.com',
-    pass: 'xgkd vtmt bsat jdgk'
+    user: 'carethenationalpharma@gmail.com',
+    pass: 'giff bwwv kubi blmi'
   }
 });
-
 
 router.post('/',upload,(req,res,next)=>{  
 
@@ -70,7 +69,9 @@ router.post('/',upload,(req,res,next)=>{
     query.save();
 
 
-const resetLink = "http://localhost:4200/queryform"
+const resetLink = "http://localhost:4200/queryform";
+const logo = "https://thenationalpharma.com/icons/logo-pharma.svg";
+const call = "https://thenationalpharma.com/icons/call.svg";
    
 
     // res.status(201).json({
@@ -78,46 +79,77 @@ const resetLink = "http://localhost:4200/queryform"
     // });
 
     const mailOptions = {
-      from: 'adkhan9355@gmail.com', // sender mail
+      from: 'carethenationalpharma@gmail.com', // sender mail
       to: [
         // { name: "Sharif Sahab", address: "adsaifee768@gmail.com" },
+        { name: "Sharif Sahab", address: "carethenationalpharma@gmail.com" },
         { name: `${query.name}`, address: `${query.email}` },
       ], // reciever mail
-      subject: "New Order",
-      attachments: [{
+      subject: "Order Successfully placed",
+      attachments: [
+        {
         // filename: 'Medician Slip.jpg',
         path: query.uploadslip,
         // contentType: 'application/jpg',
-      }],
+        },
+      {
+        filename: 'logo-pharma.png',
+        // path: query.uploadslip,
+        path:'./images/pharma-logo.png',
+        cid: 'logo-pharma',
+      },
+      {
+        filename: 'call.png',
+        // path: query.uploadslip,
+        path:'./images/call.png',
+        cid: 'call',
+      }
+    ],
       html:`
-        <html>
-          <head>
-              <title>New Order</title>
-          </head>
-          <body>
-               <table border="0" cellpadding="0" cellspacing="0" width="auto" style="color:#566372; padding:25px; border:1px solid #dddddd;" cellspacing="0" cellpadding="0">
-               <thead>
-                  <tr><th align="left"><h1 style="font-size:18px; color:#113561; margin-top:0;">New Order</h1></th></tr>
-               </thead> 
-               <tbody>  
-               <tr><td><p style="margin-top:0"><b style="color:#113561;">Dear ${query.name}</b></td></p></tr>  
-               <tr><td>Email - ${query.email}</td></tr> 
-               <tr><td>Phone - ${query.phone}</td></tr>
-               <tr><td>Hospital - ${query.hospital}</td></tr> 
-               <tr><td>address - ${query.address}</td></tr> 
-               <tr><td>State - ${query.currState}</td></tr> 
-               <tr><td>City - ${query.currCity}</td></tr> 
-               <tr><td>Pincode - ${query.pincode}</td></tr> 
-               <tr>
-               <p>We have received a request to your medician order for National Pharma</p>
-               <a href="${resetLink}" style="cursor: pointer;"><button type"button" style="padding:10px 15px; cursor: pointer; background:#1bc8b1; color:#fff; border-radius:3px; outline:0; border:0;cursor: pointer;">Go for agian</button></a>
-               <p>Thanks you</p>
-               <p>Team National Pharma</p>
-               </tr>
-               </tbody>
-               </table>
-          </body>
-        <html>
+          <table border="0" cellpadding="0" cellspacing="0" width="auto"  style="color:#566372; padding:15px; border:1px solid #dddddd; font-size: 14px;"  cellspacing="0" cellpadding="0">
+            <thead>
+              <tr>
+                  <th align="left">
+                      <a style="https://thenationalpharma.com" style="color: #6C8098">
+                        <img  style="width: 40px; float: left;" src="cid:logo-pharma"/>
+                        <span class="slog" style="float: left; margin-left: 4px; line-height: 10px;">
+                          <small style="font-size: 9px; font-weight: 300;">The</small>
+                          <span  style="font-size: 9px; display: block;">National</span>
+                          <span style="font-size: 10px;">Pharma</span>
+                        </span>
+                      </a>
+                  </th>
+                  <th>
+                    <a href="tel:9811824495" style="color: #6C8098; text-decoration: none;">
+                        <span style="width: 20px; float: left; height:20px; margin-right: 6px;  border-radius: 100%; border: 1px solid #ddd;">
+                            <img style="width: 12px; margin-top: 4px;" src="cid:call" alt="call">
+                        </span>                   
+                        <span style="font-size: 12px; font-weight:400;">9811824495</span>
+                    </a>
+                  </th>
+              </tr>   
+          
+            </thead> 
+            <tbody>  
+            <tr><td align="left" style="font-size:16px; color:#113561; padding-top:20px; padding-bottom:10px;">Our agent call you shortly</td></tr>    
+            <tr><td><b style="color:#113561;">Dear${query.name}</b></td></tr>  
+            <tr><td>Email - ${query.email}</td></tr> 
+            <tr><td>Phone - ${query.phone}</td></tr>
+            <tr><td>Whatsapp - ${query.whatsapp}</td></tr>
+            <tr><td>Hospital - ${query.hospital}</td></tr> 
+            <tr><td>address - ${query.address}</td></tr> 
+            <tr><td>State - ${query.currState}</td></tr> 
+            <tr><td>City - ${query.currCity}</td></tr> 
+            <tr><td>Pincode - ${query.pincode}</td></tr> 
+            <tr>
+            <p>We have received a request to your medician order for The National Pharma</p>
+            <a href="${resetLink}" style="cursor: pointer;"><button type"button" style="padding:10px 15px; cursor: pointer; background:#1565c0; color:#fff; border-radius:3px; outline:0; border:0;cursor: pointer;">GO TO HOME</button></a>
+            <p>Thanks you</p>
+            <p>Team The National Pharma</p>
+            </tr>
+            </tbody>
+        </table>
+       
       `
     };
      

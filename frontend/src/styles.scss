@@ -74,14 +74,12 @@ a{text-decoration: none;}
 
 .border{border: 1px solid #ddd;}
 
-
 .bg-light{background: #f6f6f6}
 .text-light{opacity: .6;}
 
 .title{margin-top: 0; color:#113561;}
 
 .box-shadow{ background: #fff; box-shadow: 1px 2px 4px rgba(0,0,0,.1); padding: 25px;}
-
 
 section{padding-top: 16px; padding-bottom: 16px;}
 .container{max-width: 1140px; padding-left: 14px; padding-right: 14px; margin: 0 auto; }
@@ -100,6 +98,7 @@ section{padding-top: 16px; padding-bottom: 16px;}
 .d-none{display: none;}
 .d-block{display: block;}
 .text-center{text-align: center;}
+.text-body{color: #6C8098;;}
 .ms-auto{margin-left: auto;}
 
 .top-space{margin-top:50px;}
@@ -116,7 +115,7 @@ input[type="file"]::file-selector-button{ /* the button to select file */
     
 }
 input[type="file"]::file-selector-button:hover{
-    background-color: #1bc8b1;
+    background-color: #1565c0;
     color: #fff;
 }
 
@@ -129,6 +128,7 @@ input[type="file" i]{ /* the name of the selected file */
 }
 
 figure{margin: 0;}
+
 
 // .image_input_container{
 //     background-color: #ffffff;
@@ -147,7 +147,7 @@ figure{margin: 0;}
 
 @media(min-width:576px){
     section{padding-top: 30px; padding-bottom: 30px;}
-    .col-lg-6{width: 50%; padding-left: 14px; padding-right: 14px;}
+    .col-lg-6{width: 50%;}
     .top-space{margin-top: 44px;}
     .d-inline-md-block{display: inline-block!important;}
 }

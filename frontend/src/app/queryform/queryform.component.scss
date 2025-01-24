@@ -12,8 +12,18 @@
     }
 } 
 
+.submit-btn{ margin-bottom: 0;
+     position: fixed; left: 0; right: 0; bottom: 0; padding: 10px; background: #fff;
+     box-shadow: 10px 0 30px rgba(0, 0, 0, 0.2);
+     .btn{min-width: 100%;}
+}
+
 @media(min-width:576px){
     .query-form{ padding: 25px;
         h1{font-size: 18px;}
+    }
+    .submit-btn{
+        all: inherit;
+        .btn{min-width: 160px;}
     }
 }

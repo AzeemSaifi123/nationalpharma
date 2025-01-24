@@ -3,7 +3,19 @@
     padding-top: .5rem;
     padding-bottom: .5rem;
     .navbar-brand{color: #113561; font-size: 14px; font-weight: 700; text-transform: uppercase;
-        img{max-width: 30px; margin-right: 4px;}
+        img{max-width: 30px; margin-right: 7px;}
+        .slog{
+            line-height: 10px;
+            small{
+                font-weight: 300; font-size: 9px;
+            }
+            .t-2{
+                font-size: 10px;
+            }
+            .t-3{
+                font-size: 12px;
+            }
+        }
     }
     .navbar-nav{  
         .nav-link{display: block;
@@ -20,7 +32,19 @@
 @media(min-width:992px){
     .navbar{
         .navbar-brand{ font-size: 16px;
-            img{max-width: 40px;}
+            img{max-width: 46px;}
+            .slog{
+                line-height: 10px;
+                small{
+                    font-weight: 300; font-size: 9px;
+                }
+                .t-2{
+                    font-size: 12px;
+                }
+                .t-3{
+                    font-size: 14px;
+                }
+            }
         }
     }
 }
