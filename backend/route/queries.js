@@ -87,7 +87,7 @@ const resetLink = "http://localhost:4200/queryform";
       {
         filename: 'logo-pharma.png',
         // path: query.uploadslip,
-        path:'./images/pharma-logo.png',
+        path:'./icons/pharma-logo.png',
         cid: 'logo-pharma',
       },
       {
