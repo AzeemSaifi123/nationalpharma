@@ -1,3 +1,13 @@
+<!-- 
+<app-loader></app-loader> -->
+
+@if(isLoading){
+    <!-- <div class="loading d-flex align-items-center justify-content-center">
+        <h3>Wait for data is loading...</h3>
+    </div> -->
+    <app-loader></app-loader>
+}
+
 
 <section class="bg-light top-space vh">
     <div class="container">
@@ -55,12 +65,16 @@
                                         <span class="error">Enter your contact number</span>
                                     }
                                 }
+                                @if(queryForm.controls.phone.errors?.pattern){
+                                    <span class="error">Enter valid mobile number</span>                          
+                                }
                                 @if(queryForm.controls.phone.errors?.minlength){
                                     <span class="error">Enter minmum  10 digit number</span>                            
                                 }
                                 @if(queryForm.controls.phone.errors?.maxlength){
                                     <span class="error">Enter maximum  10 digit number</span>
                                 }
+                             
                         </div>
                        </div>
                        <div class="col-lg-6">
@@ -77,6 +91,9 @@
                                 }
                                 @if(queryForm.controls.whatsapp.errors?.maxlength){
                                     <span class="error">Enter maximum  10 digit number</span>
+                                }
+                                @if(queryForm.controls.whatsapp.errors?.pattern){
+                                    <span class="error">Enter valid whatsapp number</span>                          
                                 }
                             </div>
                        </div>
@@ -163,7 +180,7 @@
                       <div class="col-lg-6">
                         <div class="form-group">
                             <label>Pincode</label>
-                            <input type="tel" class="form-control" formControlName="pincode" (keypress)="numberOnly($event)">
+                            <input type="tel" maxlength="6" class="form-control" formControlName="pincode" (keypress)="numberOnly($event)">
                              @if(formSubmitted || queryForm.controls.pincode.touched) {
                                 @if(queryForm.controls.pincode.errors?.required){
                                    <span class="error">Enter your pincode number</span>
@@ -186,9 +203,7 @@
 
                     </form>
                     
-                </div>
-
-                
+                </div>            
             </div>
   
             <figure class="col-lg-4">
@@ -226,11 +241,6 @@
     </div>
 </section> -->
 
-@if(isLoading){
-    <div class="loading d-flex align-items-center justify-content-center">
-        <h3>Wait for data is loading...</h3>
-    </div>
-}
 
 
 

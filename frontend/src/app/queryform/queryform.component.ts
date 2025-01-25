@@ -7,10 +7,11 @@ import { UserService } from '../services/user.service';
 import { noFirstSpaceValidator } from '../utility/trimvalidator';
 import { fileSizeValidator } from '../utility/imagevalidator';
 import { LoaderService } from '../services/loader.service';
+import { LoaderComponent } from "../loader/loader.component";
 
 @Component({
   selector: 'app-queryform',
-  imports: [ReactiveFormsModule,FormsModule],
+  imports: [ReactiveFormsModule, FormsModule, LoaderComponent],
   templateUrl: './queryform.component.html',
   styleUrl: './queryform.component.scss'
 })
@@ -48,7 +49,7 @@ export class QueryformComponent {
           this.queriesData = result['queries'];
           console.log(result['queries'],"queries data")
       });
-
+ 
   }
 
   ngOnInit(){
@@ -56,8 +57,8 @@ export class QueryformComponent {
     this.queryForm = this.formBuilder.group({
       name: new FormControl('', [Validators.required,Validators.minLength(3), noFirstSpaceValidator, Validators.maxLength(20),Validators.pattern(/^[a-zA-Z ]*$/)]),
       email: new FormControl('', [Validators.required,Validators.email]),
-      phone: new FormControl('', [Validators.required,Validators.minLength(10), Validators.maxLength(10)]),
-      whatsapp: new FormControl('', [Validators.required,Validators.minLength(10), Validators.maxLength(10)]),
+      phone: new FormControl('', [Validators.required,Validators.minLength(10), Validators.maxLength(10),Validators.pattern(/^[6789]\d{9}$/)]),
+      whatsapp: new FormControl('', [Validators.required,Validators.minLength(10), Validators.maxLength(10),Validators.pattern(/^[6789]\d{9}$/)]),
       hospital: new FormControl('', [Validators.required, noFirstSpaceValidator]),
       uploadslip: new FormControl('',[
         Validators.required,
@@ -118,15 +119,13 @@ export class QueryformComponent {
           formData.append('currCity', this.queryForm.get('currCity').value);
           formData.append('pincode', this.queryForm.get('pincode').value);
 
-          
-
-  if(this.queryForm.valid){ 
-    this.loaderService.getLoading().subscribe((loading) => {
-      this.isLoading = loading;
-    });
-    this.userSer.sendQuery(formData).subscribe((result:any)=>{ 
-        this.router.navigate(['thank-you'])    
-     });
+    if(this.queryForm.valid){ 
+      this.loaderService.getLoading().subscribe((loading) => {
+        this.isLoading = loading;
+      });
+      this.userSer.sendQuery(formData).subscribe((result:any)=>{ 
+          this.router.navigate(['thank-you'])    
+      });
     } 
 
   }

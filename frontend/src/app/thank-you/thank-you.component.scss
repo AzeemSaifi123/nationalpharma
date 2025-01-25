@@ -1,2 +1,6 @@
 .container{max-width: 600px;}
-.icon{max-width: 70px; margin-bottom:16px;}
+.icon{max-width: 65px; margin-bottom:16px;}
+
+@media(max-width:576px){
+    .vh{height: 79vh;}
+}

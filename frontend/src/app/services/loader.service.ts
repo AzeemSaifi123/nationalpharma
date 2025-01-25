@@ -16,4 +16,5 @@ export class LoaderService {
   getLoading() {
     return this.isLoading.asObservable();
   }
+
 }

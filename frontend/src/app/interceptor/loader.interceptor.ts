@@ -18,7 +18,8 @@ export const loaderInterceptor: HttpInterceptorFn = (  req: HttpRequest<any>,
           loaderService.setLoading(false);
         }
       })
-    );
+    );    
+
   }
 
   
