@@ -6,7 +6,7 @@
     "test": "hello",
     "serve:ssr:nationpharma": "node dist/nationpharma/server/server.mjs",
     "start:server": "nodemon app.js",
-    "build": "webpack --watch"
+    "build": "ng build"
   },
   "author": "",
   "license": "ISC",
