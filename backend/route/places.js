@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const places = require('../models/places')
 
-
   router.get('/',(req,res,next)=>{
     places.find().then((document)=>{
         console.log(document);     

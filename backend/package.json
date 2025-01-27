@@ -5,8 +5,7 @@
   "scripts": {
     "test": "hello",
     "serve:ssr:nationpharma": "node dist/nationpharma/server/server.mjs",
-    "start:server": "nodemon app.js",
-    "build": "ng build"
+    "start:server": "nodemon app.js"
   },
   "author": "",
   "license": "ISC",
@@ -16,10 +15,9 @@
     "mongoose": "^8.9.3",
     "multer": "^1.4.5-lts.1",
     "nodemailer": "^6.9.16",
-    "nodemon": "^3.1.4",
-    "path": "^0.12.7"
+    "nodemon": "^3.1.4"
   },
-  "devDependencies": {
+  "devDependencies": {  
     "@types/express": "^4.17.17",
     "@types/node": "^18.18.0"
   }

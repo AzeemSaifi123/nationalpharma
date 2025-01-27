@@ -68,7 +68,7 @@ router.post('/',upload,(req,res,next)=>{
     query.save();
 
 
-const resetLink = "http://localhost:4200/queryform";
+// const resetLink = "http://localhost:4200/queryform";
 
     const mailOptions = {
       from: 'carethenationalpharma@gmail.com', // sender mail
@@ -136,7 +136,7 @@ const resetLink = "http://localhost:4200/queryform";
             <tr>
                 <td colspan="2">
                     <p >We have received a request to your medician order for The National Pharma</p>
-                    <a href="${resetLink}" style="cursor: pointer; display:inline-block">
+                    <a href="https://thenationalpharma.com" style="cursor: pointer; display:inline-block">
                       <button type"button" style="padding:10px 15px; cursor: pointer; background:#1565c0; color:#fff; border-radius:3px; outline:0; border:0;cursor: pointer; font-size:1.6vh;">GO TO HOME</button>
                     </a>
                     <p style="margin:20px 0 0 0;">Thanks you</p>
