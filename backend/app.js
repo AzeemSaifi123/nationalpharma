@@ -12,10 +12,14 @@ const http = require("http");
 // const app = require('app');
 
 // const uri = 'mongodb://127.0.0.1:27017/database'; // Replace 'mydatabase' with your database name
-const uri = 'mongodb://147.93.96.8:27017/database'; // Replace 'mydatabase' with your database name
+const uri = 'mongodb://localhost:27017/database'; // Replace 'mydatabase' with your database name
 
 // Connect to MongoDB
-mongoose.connect(uri).then(() => {
+mongoose.connect(uri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+.then(() => {
     console.log('Connected to MongoDB successfully!');
 })
 .catch((error) => {
@@ -32,15 +36,18 @@ const server = http.createServer(app);
 server.listen(port);
 
 app.use((req,res,next)=>{
-    res.setHeader("Access-Control-Allow-Origin", "https://thenationalpharma.com");
-    res.setHeader(
-      "Access-Control-Allow-Headers",
-      "Origin, X-Requested-With, Content-Type, Accept, Authorization"
-    );
-    res.setHeader(
-      "Access-Control-Allow-Methods",
-      "GET, POST, PATCH, PUT, DELETE, OPTIONS"
-    );
+    // res.setHeader("Access-Control-Allow-Origin", "https://thenationalpharma.com");
+    // res.setHeader(
+    //   "Access-Control-Allow-Headers",
+    //   "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+    // );
+    // res.setHeader(
+    //   "Access-Control-Allow-Methods",
+    //   "GET, POST, PATCH, PUT, DELETE, OPTIONS"
+    // );
+    res.header("Access-Control-Allow-Origin", "*"); // Allow all origins
+    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
     next();
 });
 
