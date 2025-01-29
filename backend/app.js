@@ -52,7 +52,7 @@ const server = http.createServer(app);
 server.listen(port);
 
 app.use((req,res,next)=>{
-    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Origin", "https://thenationalpharma.com");
     res.setHeader(
       "Access-Control-Allow-Headers",
       "Origin, X-Requested-With, Content-Type, Accept, Authorization"
