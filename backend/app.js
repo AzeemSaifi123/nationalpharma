@@ -49,6 +49,18 @@ app.use((req,res,next)=>{
 
 app.use(cors());
 
+const allowedOrigins = ['http://localhost:3000', 'https://api.thenationalpharma.com']; // Add your allowed origins
+
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) { // Allow requests from allowed origins or no origin (like Postman)
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
+}));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 
