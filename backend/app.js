@@ -59,6 +59,7 @@ app.use((req,res,next)=>{
     next();
 });
 
+app.use(cors({ origin: "*", methods: "GET,POST,PUT,DELETE,OPTIONS" }));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
@@ -69,7 +70,7 @@ app.use('/database/places',routerPlaces);
 app.use('/database/queries',router);
 app.use('/database/user',router);
 
-app.use(cors({ origin: "*", methods: "GET,POST,PUT,DELETE,OPTIONS" }));
+
 
 // app.use('/database/queries', routerQuery);
 
