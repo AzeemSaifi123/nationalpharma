@@ -8,16 +8,16 @@ const cors = require('cors');
 
 const app = express();
 
-app.use(
-    cors({
-      origin: "https://thenationalpharma.com", // Change to your actual domain
-      methods: "GET, POST, PUT, DELETE, OPTIONS",
-      allowedHeaders: "Content-Type, Authorization",
-      credentials: true, // If using cookies or authentication
-    })
-  );
+// app.use(
+//     cors({
+//       origin: "https://thenationalpharma.com", // Change to your actual domain
+//       methods: "GET, POST, PUT, DELETE, OPTIONS",
+//       allowedHeaders: "Content-Type, Authorization",
+//       credentials: true, // If using cookies or authentication
+//     })
+//   );
   
-  // Handle preflight requests
+//   // Handle preflight requests
 app.options("*", cors());
 
 
