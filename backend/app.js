@@ -9,7 +9,7 @@ const cors = require('cors');
 const app = express();
 
 const allowedOrigins = [
-    'https://thenationalpharma.com', // EXACTLY your production domain (no wildcards!)
+    'thenationalpharma.com', // EXACTLY your production domain (no wildcards!)
     'www.thenationalpharma.com', // Include www if used
     // Any other allowed subdomains or domains
   ];
