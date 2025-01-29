@@ -69,7 +69,7 @@ app.use('/database/places',routerPlaces);
 app.use('/database/queries',router);
 app.use('/database/user',router);
 
-app.options("*", cors());
+app.use(cors({ origin: "*", methods: "GET,POST,PUT,DELETE,OPTIONS" }));
 
 // app.use('/database/queries', routerQuery);
 
