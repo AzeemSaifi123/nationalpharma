@@ -53,8 +53,8 @@ app.use((req,res,next)=>{
 
 app.use(
     cors({
-        origin:"https://api.thenationalpharma.com/",
-        method:[ "GET", "POST", "PATCH", "PUT", "DELETE", "OPTIONS"]
+        origin:"https://thenationalpharma.com",
+        method:[ "GET, POST, PATCH, PUT, DELETE, OPTIONS"]
     })
 );
 
