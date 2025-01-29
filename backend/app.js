@@ -8,12 +8,25 @@ const cors = require('cors');
 
 const app = express();
 
-app.use(
-    cors({
-        origin:"https://thenationalpharma.com",
-        method:[ "GET", "POST", "PATCH", "PUT", "DELETE", "OPTIONS"]
-    })
-);
+const allowedOrigins = [
+    'https://thenationalpharma.com', // EXACTLY your production domain (no wildcards!)
+    'https://www.thenationalpharma.com', // Include www if used
+    // Any other allowed subdomains or domains
+  ];
+  
+  app.use(cors({
+    origin: function (origin, callback) {
+      if (allowedOrigins.includes(origin) || !origin) { // Allow listed origins and requests with no origin (e.g., Postman in dev)
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'], // Be explicit about allowed methods
+    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'], // List all necessary headers
+    credentials: true, // Only if you're using cookies or sessions (and then origin *must* be exact)
+  }));
+  
 
 const http = require("http");
 // const app = require('app');
