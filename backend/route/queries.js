@@ -98,7 +98,7 @@ router.post('/',upload,(req,res,next)=>{
       }
     ],
       html:`
-          <table border="0" cellpadding="0" cellspacing="0" width="auto"  style="color:#566372; padding:15px; border:1px solid #dddddd; font-size: 1.6vh;"  cellspacing="0" cellpadding="0">
+          <table border="0" cellpadding="0" cellspacing="0" width="auto"  style="color:#566372; padding:15px; border:1px solid #dddddd; font-size: 14px;"  cellspacing="0" cellpadding="0">
             <thead>
               <tr>
                   <th align="left">
@@ -106,8 +106,8 @@ router.post('/',upload,(req,res,next)=>{
                         <img  style="width: 40px; float: left;" src="cid:logo-pharma"/>
                         <span class="slog" style="float: left; margin-left: 4px; line-height: 8px;">
                           <small style="font-size: 9px; font-weight: 300;">The</small>
-                          <span  style="font-size: 1vh; display: block;">National</span>
-                          <span style="font-size: 1.1vh;">Pharma</span>
+                          <span  style="font-size: 9px; display: block;">National</span>
+                          <span style="font-size: 10px;">Pharma</span>
                         </span>
                       </a>
                   </th>
@@ -123,7 +123,7 @@ router.post('/',upload,(req,res,next)=>{
           
             </thead> 
             <tbody>  
-            <tr><td colspan="2" align="left" style="font-size:2vh; color:#113561; padding-top:20px; padding-bottom:10px;">Our agent call you shortly</td></tr>    
+            <tr><td colspan="2" align="left" style="font-size:16px; color:#113561; padding-top:20px; padding-bottom:10px;">Our agent call you shortly</td></tr>    
             <tr><td colspan="2" style="padding-bottom:10px"><b style="color:#113561">Dear ${query.name}</b></td></tr>  
             <tr><td colspan="2">Email - ${query.email}</td></tr> 
             <tr><td>Phone - ${query.phone}</td></tr>
@@ -136,8 +136,8 @@ router.post('/',upload,(req,res,next)=>{
             <tr>
                 <td colspan="2">
                     <p >We have received a request to your medician order for The National Pharma</p>
-                    <a href="https://thenationalpharma.com" style="cursor: pointer; display:inline-block">
-                      <button type"button" style="padding:10px 15px; cursor: pointer; background:#1565c0; color:#fff; border-radius:3px; outline:0; border:0;cursor: pointer; font-size:1.6vh;">GO TO HOME</button>
+                    <a href="https://thenationalpharma.com" target="_blank" style="cursor: pointer; display:inline-block">
+                      <button type"button" style="padding:10px 15px; cursor: pointer; background:#1565c0; color:#fff; border-radius:3px; outline:0; border:0;cursor: pointer; font-size:13px;">GO TO HOME</button>
                     </a>
                     <p style="margin:20px 0 0 0;">Thanks you</p>
                     <p style="margin:0;">Team The National Pharma</p>
