@@ -10,7 +10,7 @@ const app = express();
 
 app.use(
     cors({
-      origin: "https://your-angular-domain.com", // Change to your actual domain
+      origin: "https://thenationalpharma.com", // Change to your actual domain
       methods: "GET, POST, PUT, DELETE, OPTIONS",
       allowedHeaders: "Content-Type, Authorization",
       credentials: true, // If using cookies or authentication
