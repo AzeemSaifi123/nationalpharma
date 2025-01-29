@@ -1,7 +1,6 @@
 {
   "name": "nationpharma",
   "version": "0.0.0",
-  "proxy":"https://thenationalpharma.com",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
