@@ -1,4 +1,5 @@
 export const environment = {
-        apiUrl:"https://api.thenationalpharma.com/database"
+        production: true,
+        apiUrl:"http://147.93.96.8/database"
         //apiUrl:"http://localhost:3000/database"
 };
