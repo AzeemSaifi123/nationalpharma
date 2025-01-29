@@ -31,8 +31,8 @@ const allowedOrigins = [
 const http = require("http");
 // const app = require('app');
 
-const uri = 'mongodb://127.0.0.1:27017/database'; // Replace 'mydatabase' with your database name
-// const uri = 'mongodb://147.93.96.8:27017/database'; // Replace 'mydatabase' with your database name
+// const uri = 'mongodb://127.0.0.1:27017/database'; // Replace 'mydatabase' with your database name
+const uri = 'mongodb://147.93.96.8:27017/database'; // Replace 'mydatabase' with your database name
 
 // Connect to MongoDB
 mongoose.connect(uri).then(() => {
