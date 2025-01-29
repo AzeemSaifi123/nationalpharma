@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const router = require('./route/queries');
 const routerPlaces = require('./route/places');
-// const cors = require('cors');
+const cors = require('cors');
 // const path = require('path');
 
 const app = express();
@@ -15,11 +15,7 @@ const http = require("http");
 const uri = 'mongodb://147.93.96.8:27017/database'; // Replace 'mydatabase' with your database name
 
 // Connect to MongoDB
-mongoose.connect(uri, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-.then(() => {
+mongoose.connect(uri).then(() => {
     console.log('Connected to MongoDB successfully!');
 })
 .catch((error) => {
@@ -51,15 +47,12 @@ app.use((req,res,next)=>{
     next();
 });
 
-// app.use(cors());
-
-
+app.use(cors());
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 
 app.use("/images/", express.static('images'));
-
 
 app.use('/database/places',routerPlaces);
 app.use('/database/queries',router);
