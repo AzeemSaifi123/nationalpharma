@@ -7,24 +7,25 @@ const cors = require('cors');
 // const path = require('path');
 
 const app = express();
+ app.use(cors());
 
-const allowedOrigins = [
-    'https://thenationalpharma.com' // EXACTLY your production domain (no wildcards!) // Include www if used
-    // Any other allowed subdomains or domains
-  ];
+// const allowedOrigins = [
+//     'https://thenationalpharma.com' // EXACTLY your production domain (no wildcards!) // Include www if used
+//     // Any other allowed subdomains or domains
+//   ];
   
-  app.use(cors({
-    origin: function (origin, callback) {
-      if (allowedOrigins.includes(origin) || !origin) { // Allow listed origins and requests with no origin (e.g., Postman in dev)
-        callback(null, true);
-      } else {
-        callback(new Error('Not allowed by CORS'));
-      }
-    },
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'], // Be explicit about allowed methods
-    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'], // List all necessary headers
-    credentials: true, // Only if you're using cookies or sessions (and then origin *must* be exact)
-  }));
+//   app.use(cors({
+//     origin: function (origin, callback) {
+//       if (allowedOrigins.includes(origin) || !origin) { // Allow listed origins and requests with no origin (e.g., Postman in dev)
+//         callback(null, true);
+//       } else {
+//         callback(new Error('Not allowed by CORS'));
+//       }
+//     },
+//     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'], // Be explicit about allowed methods
+//     allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'], // List all necessary headers
+//     credentials: true, // Only if you're using cookies or sessions (and then origin *must* be exact)
+//   }));
   
 
 const http = require("http");
@@ -65,11 +66,6 @@ app.use((req,res,next)=>{
     // res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
     next();
 });
-
-// app.use(cors());
-
-// const allowedOrigins = ['http://localhost:3000', 'https://thenationalpharma.com']; // Add your allowed origins
-
 
 
 app.use(bodyParser.json());
