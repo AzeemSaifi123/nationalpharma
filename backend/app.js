@@ -49,7 +49,7 @@ app.use((req,res,next)=>{
 
 app.use(cors());
 
-const allowedOrigins = ['http://localhost:3000', 'https://api.thenationalpharma.com']; // Add your allowed origins
+const allowedOrigins = ['http://localhost:3000', 'https://thenationalpharma.com']; // Add your allowed origins
 
 app.use(cors({
   origin: function (origin, callback) {
