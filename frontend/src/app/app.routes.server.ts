@@ -6,5 +6,5 @@ export const serverRoutes: ServerRoute[] = [
     renderMode: RenderMode.Prerender
   },
   { path: 'ssr-route', renderMode: RenderMode.Server },
-  { path: 'csr-route', renderMode: RenderMode.Client },
+  // { path: 'csr-route', renderMode: RenderMode.Client },
 ];
