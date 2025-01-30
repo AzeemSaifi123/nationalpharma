@@ -8,8 +8,6 @@ import { LoaderService } from '../services/loader.service';
   styleUrl: './loader.component.scss'
 })
 export class LoaderComponent {
-
-
   constructor(public loader:LoaderService){
 
   }

@@ -21,7 +21,7 @@ a{text-decoration: none;}
         -webkit-appearance:none;
         -moz-appearance:none;
         appearance:none;
-        border-radius:.25rem;
+        border-radius:.16rem;
         transition:border-color .15s ease-in-out,
         box-shadow .15s ease-in-out;
         font-family: "Inter", serif;
@@ -155,7 +155,10 @@ figure{margin: 0;}
 @media(min-width:992px){
     .col-lg-8{width:66.66666667%;}
     .col-lg-4{width:33.33333333%;}
-    .vh{height: 90vh;}
     .top-space{margin-top: 52px;}
+    .vh{height: 90vh;}
 }
+
+
+
 
