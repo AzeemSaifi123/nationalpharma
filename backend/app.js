@@ -8,6 +8,19 @@ const routerPlaces = require('./route/places');
 
 const app = express();
 
+// app.use(
+//     cors({
+//       origin: "https://thenationalpharma.com", // Change to your actual domain
+//       methods: "GET, POST, PUT, DELETE, OPTIONS",
+//       allowedHeaders: "Content-Type, Authorization",
+//       credentials: true, // If using cookies or authentication
+//     })
+//   );
+  
+//   // Handle preflight requests
+
+
+
 const http = require("http");
 // const app = require('app');
 
@@ -30,12 +43,14 @@ const port = process.env.PORT || 3000;
 
 app.set('port', port);
 
+// app.set('ip','147.93.96.8');
+
 const server = http.createServer(app);
 
 server.listen(port);
 
 app.use((req,res,next)=>{
-    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Origin", "https://thenationalpharma.com");
     res.setHeader(
       "Access-Control-Allow-Headers",
       "Origin, X-Requested-With, Content-Type, Accept, Authorization",
@@ -45,9 +60,6 @@ app.use((req,res,next)=>{
       "Access-Control-Allow-Methods",
       "GET, POST, PATCH, PUT, DELETE, OPTIONS"
     );
-    // res.header("Access-Control-Allow-Origin", "*"); // Allow all origins
-    // res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-    // res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
     next();
 });
 
@@ -62,10 +74,12 @@ app.use(bodyParser.urlencoded({extended:false}));
 
 app.use("/images/", express.static('images'));
 
-
 app.use('/database/places',routerPlaces);
 app.use('/database/queries',router);
 app.use('/database/user',router);
+
+
+
 // app.use('/database/queries', routerQuery);
 
 
