@@ -8,29 +8,14 @@ const routerPlaces = require('./route/places');
 
 const app = express();
 
-// app.use(
-//     cors({
-//       origin: "https://thenationalpharma.com", // Change to your actual domain
-//       methods: "GET, POST, PUT, DELETE, OPTIONS",
-//       allowedHeaders: "Content-Type, Authorization",
-//       credentials: true, // If using cookies or authentication
-//     })
-//   );
-  
-//   // Handle preflight requests
-
-
-
 const http = require("http");
 // const app = require('app');
 
-const uri = 'mongodb://127.0.0.1:27017/database'; // Replace 'mydatabase' with your database name
-//const uri = 'mongodb://147.93.96.8:27017/database';
+//const uri = 'mongodb://127.0.0.1:27017/database'; // Replace 'mydatabase' with your database name
+const uri = 'mongodb://147.93.96.8:27017/database';
 
 // Connect to MongoDB
-mongoose.connect(uri,
-   //{useNewUrlParser: true,useUnifiedTopology: true,}
-)
+mongoose.connect(uri)
 .then(() => {
     console.log('Connected to MongoDB successfully!');
 })
