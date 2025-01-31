@@ -8,18 +8,21 @@ const routerPlaces = require('./route/places');
 
 const app = express();
 
-// app.use(
-//     cors({
-//       origin: "https://thenationalpharma.com", // Change to your actual domain
-//       methods: "GET, POST, PUT, DELETE, OPTIONS",
-//       allowedHeaders: "Content-Type, Authorization",
-//       credentials: true, // If using cookies or authentication
-//     })
-//   );
+// const corsOptions = {
+//   origin: function (origin, callback) {
+//     if (['https://thenationalpharma.com/', 'https://api.thenationalpharma.com/'].indexOf(origin) !== -1 || !origin) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error('Not allowed by CORS'));
+//     }
+//   },
+//   credentials: true,
+// };
+
+// app.use(cors(corsOptions));
+
   
 //   // Handle preflight requests
-
-
 
 const http = require("http");
 // const app = require('app');
@@ -29,7 +32,7 @@ const uri = 'mongodb://147.93.96.8:27017/database';
 
 // Connect to MongoDB
 mongoose.connect(uri,
-   //{useNewUrlParser: true,useUnifiedTopology: true,}
+   {useNewUrlParser: true,useUnifiedTopology: true,}
 )
 .then(() => {
     console.log('Connected to MongoDB successfully!');
@@ -41,16 +44,16 @@ mongoose.connect(uri,
 
 const port = process.env.PORT || 3000;
 
-app.set('port', port);
+// app.set('port', port);
 
-// app.set('ip','147.93.96.8');
+app.set('ip','147.93.96.8');
 
 const server = http.createServer(app);
 
 server.listen(port);
 
 app.use((req,res,next)=>{
-    res.setHeader("Access-Control-Allow-Origin", "https://thenationalpharma.com");
+    res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader(
       "Access-Control-Allow-Headers",
       "Origin, X-Requested-With, Content-Type, Accept, Authorization",
@@ -63,9 +66,9 @@ app.use((req,res,next)=>{
     next();
 });
 
-app.use(cors({
-  origin: 'https://thenationalpharma.com'
-}));
+// app.use(cors({
+//   origin: 'https://thenationalpharma.com'
+// }));
 
 
 
