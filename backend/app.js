@@ -3,23 +3,23 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const router = require('./route/queries');
 const routerPlaces = require('./route/places');
- const cors = require('cors');
+ //const cors = require('cors');
 // const path = require('path');
 
 const app = express();
 
-const corsOptions = {
-  origin: function (origin, callback) {
-    if (['https://thenationalpharma.com/', 'https://api.thenationalpharma.com/'].indexOf(origin) !== -1 || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  credentials: true,
-};
+// const corsOptions = {
+//   origin: function (origin, callback) {
+//     if (['https://thenationalpharma.com/', 'https://api.thenationalpharma.com/'].indexOf(origin) !== -1 || !origin) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error('Not allowed by CORS'));
+//     }
+//   },
+//   credentials: true,
+// };
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 
   
 //   // Handle preflight requests
