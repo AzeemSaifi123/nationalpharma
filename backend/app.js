@@ -31,10 +31,7 @@ const uri = 'mongodb://127.0.0.1:27017/database'; // Replace 'mydatabase' with y
 //const uri = 'mongodb://147.93.96.8:27017/database';
 
 // Connect to MongoDB
-mongoose.connect(uri,{
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
+mongoose.connect(uri)
 .then(() => {
     console.log('Connected to MongoDB successfully!');
 })
