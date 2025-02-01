@@ -42,9 +42,9 @@ mongoose.connect(uri)
 
 const port = process.env.PORT || 3000;
 
-// app.set('port', port);
+app.set('port', port);
 
-app.set('ip','147.93.96.8');
+// app.set('ip','147.93.96.8');
 
 const server = http.createServer(app);
 
