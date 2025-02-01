@@ -39,6 +39,7 @@ mongoose.connect(uri)
     console.error('Error connecting to MongoDB:', error);
     // console.error('Mongoose query error:', error);
     res.status(500).json({ error: 'An error occurred' })
+    process.exit(1);
 });
 
 
