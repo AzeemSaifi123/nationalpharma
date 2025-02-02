@@ -4,25 +4,8 @@ const mongoose = require('mongoose');
 const router = require('./route/queries');
 const routerPlaces = require('./route/places');
  //const cors = require('cors');
-// const path = require('path');
 
 const app = express();
-
-// const corsOptions = {
-//   origin: function (origin, callback) {
-//     if (['https://thenationalpharma.com/', 'https://api.thenationalpharma.com/'].indexOf(origin) !== -1 || !origin) {
-//       callback(null, true);
-//     } else {
-//       callback(new Error('Not allowed by CORS'));
-//     }
-//   },
-//   credentials: true,
-// };
-
-// app.use(cors(corsOptions));
-
-  
-//   // Handle preflight requests
 
 const http = require("http");
 // const app = require('app');
@@ -37,10 +20,7 @@ mongoose.connect(uri)
 })
 .catch((error) => {
     console.error('Error connecting to MongoDB:', error);
-    // console.error('Mongoose query error:', error);
-    res.status(500).json({ error: 'An error occurred' })
 });
-
 
 const port = process.env.PORT || 3000;
 
@@ -69,8 +49,6 @@ app.use((req,res,next)=>{
 // app.use(cors({
 //   origin: 'https://thenationalpharma.com'
 // }));
-
-
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
