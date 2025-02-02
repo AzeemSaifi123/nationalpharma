@@ -46,7 +46,8 @@ app.use((req,res,next)=>{
 });
 
 app.use(cors({
-  origin: '*'
+  origin: 'https://thenationalpharma.com/', // Only allow this origin
+  credentials: true, // Allow sending cookies
 }));
 
 app.use(bodyParser.json());
