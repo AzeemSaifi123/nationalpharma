@@ -171,7 +171,6 @@ router.post('/',upload,(req,res,next)=>{
 
 });
 
-
   router.get('/',(req,res,next)=>{
       Queries.find().then((doc)=>{
           console.log(doc);
@@ -205,7 +204,6 @@ router.post('/',upload,(req,res,next)=>{
 //     })
     
 // });
-
 
   
   module.exports = router;
