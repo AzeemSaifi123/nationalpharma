@@ -45,13 +45,7 @@ const transporter = nodemailer.createTransport({
 router.post('/',upload,(req,res,next)=>{  
 
   let url = req.protocol + "://" + req.get("host");
-
-    console.log("Hello")
-
-     // const { email } = req.body;
-    // const { name } = req.body;
-    // query.findOne({ email })
-     
+    console.log("Hello")     
     const query = new Queries({
         name:req.body.name,
         email:req.body.email,
@@ -171,7 +165,7 @@ router.post('/',upload,(req,res,next)=>{
 
 });
 
-  router.get('/',(req,res,next)=>{
+  router.get('/', (req,res,next)=>{
       Queries.find().then((doc)=>{
           console.log(doc);
           res.status(201).json({

@@ -46,12 +46,15 @@ app.use((req,res,next)=>{
 });
 
 app.use(cors({
-  origin: 'https://thenationalpharma.com/', // Only allow this origin
+  origin: 'https://thenationalpharma.com', // Only allow this origin
   credentials: true, // Allow sending cookies
 }));
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended:false}));
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({extended:false}));
+
+app.use(bodyParser.json({limit: "10mb"}));
+app.use(bodyParser.urlencoded({extended: true, limit: "10mb"}));
 
 app.use("/images/", express.static('images'));
 
