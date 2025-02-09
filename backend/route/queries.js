@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Queries = require('../models/queries')
+const Queries = require('../models/queries');
 const multer = require('multer');
 const nodemailer = require('nodemailer');
 

@@ -49,6 +49,8 @@ export class QueryformComponent {
           this.queriesData = result['queries'];
           console.log(result['queries'],"queries data")
       });
+
+      console.log("set - header")
  
   }
 
@@ -120,7 +122,7 @@ export class QueryformComponent {
           formData.append('pincode', this.queryForm.get('pincode').value);
 
     if(this.queryForm.valid){ 
-      this.loaderService.getLoading().subscribe((loading) => {
+      this.loaderService.getLoading().subscribe((loading:any) => { 
         this.isLoading = loading;
       });
       this.userSer.sendQuery(formData).subscribe((result:any)=>{ 

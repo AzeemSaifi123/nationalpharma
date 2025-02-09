@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment.development';
 import { userData } from '../utility/datatype';
 
@@ -15,7 +15,14 @@ export class UserService {
   }
 
   sendQuery(data: userData) {
-    return this.http.post<userData>(`${this.baseUrl}/queries`,data,{observe:'response'})
+  
+      const headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        //'Content-Type': 'multipart/form-data'
+        // 'Authorization': 'Bearer your-token',
+      })
+      return this.http.post<userData>(`${this.baseUrl}/queries`,data,{observe:'response'}) 
+    // return this.http.post<userData>(`${this.baseUrl}/queries`,data,{observe:'response', headers })
   }
 
   getQuery() {
@@ -31,3 +38,6 @@ export class UserService {
   }
 
 }
+
+
+// Welcomei@123

@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const router = require('./route/queries');
 const routerPlaces = require('./route/places');
-const cors = require('cors');
+// const cors = require('cors');
 
 const app = express();
 
@@ -24,8 +24,8 @@ mongoose.connect(uri)
 
 const port = process.env.PORT || 3000;
 
-//app.set('port', port);
-app.set('ip','147.93.96.8');
+app.set('port', port);
+//app.set('ip','147.93.96.8');
 
 const server = http.createServer(app);
 
@@ -45,16 +45,16 @@ app.use((req,res,next)=>{
     next();
 });
 
-app.use(cors({
-  origin: 'https://thenationalpharma.com', // Only allow this origin
-  credentials: true, // Allow sending cookies
-}));
+// app.use(cors({
+//   origin: '*', // Only allow this origin
+//   credentials: true, // Allow sending cookies
+// }));
 
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:false}));
 
-app.use(bodyParser.json({limit: "10mb"}));
-app.use(bodyParser.urlencoded({extended: true, limit: "10mb"}));
+// app.use(bodyParser.json({limit: "10mb"}));
+// app.use(bodyParser.urlencoded({extended: true, limit: "10mb"}));
 
 app.use("/images/", express.static('images'));
 
