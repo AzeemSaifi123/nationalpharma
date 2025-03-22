@@ -43,14 +43,8 @@ export class QueryformComponent {
         this.places =  result['places'][0]['states'][0];    
         this.stateType = Object.keys(result['places'][0]['states'][0]);   
       });
-       
-      this.userSer.getQuery().subscribe((result:any) =>{
-          console.log(result,"orders")
-          this.queriesData = result['queries'];
-          console.log(result['queries'],"queries data")
-      });
-
-      console.log("set - header")
+      
+      console.log("set - 5")
  
   }
 

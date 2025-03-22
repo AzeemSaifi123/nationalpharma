@@ -1,0 +1,23 @@
+@use '../../../base' as *;
+.total-sale{padding: 16px 24px 12px 24px; border-radius: 20px;}
+.sale-box{border-radius: 16px; padding: 20px;
+    .icon{
+         width: 40px; height: 40px; 
+    }
+    h3{
+       font-size: 24px; color: $d-title; 
+    }
+    small{color: $d-blue;}
+    &.pink{background:#FFE2E5;
+        .icon{background: #FA5A7D;}
+    }
+    &.orange{background:#FFF4DE;
+        .icon{background: #FF947A;}
+    }
+    &.green{background:#DCFCE7;
+        .icon{background: #3CD856;}
+    }
+    &.purple{background:#F3E8FF;
+        .icon{background: #BF83FF;}
+    }
+}

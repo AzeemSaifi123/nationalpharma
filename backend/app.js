@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const router = require('./route/queries');
 const routerPlaces = require('./route/places');
-// const cors = require('cors');
+const cors = require('cors');
 
 const app = express();
 
@@ -45,10 +45,10 @@ app.use((req,res,next)=>{
     next();
 });
 
-// app.use(cors({
-//   origin: '*', // Only allow this origin
-//   credentials: true, // Allow sending cookies
-// }));
+app.use(cors({
+  origin: '*', // Only allow this origin
+  credentials: true, // Allow sending cookies
+}));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
@@ -60,7 +60,7 @@ app.use("/images/", express.static('images'));
 
 app.use('/database/places',routerPlaces);
 app.use('/database/queries',router);
-app.use('/database/user',router);
+
 
 
 

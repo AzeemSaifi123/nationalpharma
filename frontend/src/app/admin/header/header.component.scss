@@ -1,0 +1,12 @@
+.header{padding: 10px; 
+    .title{font-size: 24px; font-weight: 600;}
+}
+.search{ position: relative;
+    .icon{position: absolute; left: 18px; top:12px; max-width: 24px; }
+    .form-control{background:#F9FAFB; padding: 12px 12px 12px 50px;}   
+}
+.notification{ background: #FFFAF1; padding:10px 12px; border-radius: 8px; position: relative;
+    .badge{
+        background: #EB5757; top:4px; right: 0px; border-radius: 50px; position: absolute;
+     }
+}

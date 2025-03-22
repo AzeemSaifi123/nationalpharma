@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment.development';
 import { userData } from '../utility/datatype';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,20 +10,19 @@ import { userData } from '../utility/datatype';
 export class UserService {
 
   baseUrl:any = environment.apiUrl;
+  showHeader = new Subject<boolean>();
 
   constructor(private http:HttpClient) {
       
   }
-
+ 
   sendQuery(data: userData) {
-  
-      const headers = new HttpHeaders({
-        'Content-Type': 'application/json',
-        //'Content-Type': 'multipart/form-data'
-        // 'Authorization': 'Bearer your-token',
-      })
-      return this.http.post<userData>(`${this.baseUrl}/queries`,data,{observe:'response'}) 
-    // return this.http.post<userData>(`${this.baseUrl}/queries`,data,{observe:'response', headers })
+    let header:any = {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Access-Control-Allow-Headers': 'Content-Type',
+    }
+      return this.http.post<userData>(`${this.baseUrl}/queries`,data,header) 
   }
 
   getQuery() {

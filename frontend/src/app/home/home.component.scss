@@ -1,0 +1,43 @@
+@use '../../base' as *;
+.products{background: #fff; padding: 40px 10px 30px 10px;  text-align: center;}
+.products img{margin-bottom: 40px;}
+.products .pro-code{font-size: 20px; font-weight: 700; color:$textdark;}
+
+.feed-back{position: relative; margin-bottom: 70px; padding: 40px; padding-bottom: 10px; border-radius: 10px; 
+           background:url('../../../public/icons/left-quote.svg') no-repeat #1DA1F2 top 10px left 20px;}
+.feed-back p{margin-bottom: 28px;}
+.author{ position: absolute; bottom:-30px; left: 40px; z-index: 1;}
+.author::after{position: absolute; content: ''; bottom: -17px; left: 15px; width: 40px; height: 15px;
+              background: radial-gradient(ellipse at center, rgb(195 199 202) 0%, rgb(255 255 255) 80%); border-radius: 100%;}
+.author img{  max-width: 70px;}
+
+.feed-back b{padding-left: 90px; display: block;}
+
+.partner{background: #fff; margin-bottom: 150px; box-shadow: 0px 2px 4px rgba(209, 214, 218, 0.25); border-radius: 20px; height: 80px;}
+
+.achiv{margin-top: -140px; margin-bottom: 50px;}
+.achiv-bg{background: linear-gradient(270deg, #1DA1F2 -0.7%, #1BC8B1 100%); border-radius: 19px; padding-top: 25px; padding-bottom: 25px;}
+.number{color:#fff; text-align: center; position: relative;}
+.number::after{width: 1px; height: 120px; background-color: rgba(255,255,255,.18); content: ''; position: absolute; top:5px; right: -8px;}
+.number i{display: inline-block; min-height: 75px;}
+.number h3{font-size: 22px; font-weight: 700;}
+
+.choose-us{border-right:1px solid $sky; text-align: center; padding: 32px 20px 12px 20px;}
+.choose-us:last-child{border-right: none;}
+.choose-us i{display: inline-block; min-height: 80px;}
+.choose-us h3{font-size: 16px; font-weight: 600; color: $textdark; margin-bottom: 16px;}
+[class^="border-"]{border-color:$sky !important;}
+
+footer{background:#214155; padding-top: 20px;}
+.footer{margin-bottom: 10px;}
+.footer strong{color:var(--green); font-weight: 500; font-size: 18px; display: block; margin-bottom: 15px;}
+.footer ul li{list-style:disc; margin-left: 18px;}
+.footer ul li img{opacity: .7;}
+.footer ul li a{color:#869cb7; display: block;  padding: 4px 0;}
+
+.footer .address li, .footer .socialbar li{list-style: none; margin-left: 0;}
+.footer .address li{margin-bottom: 10px;}
+
+.copy-right{border-color: rgba(255, 255, 255, 0.1)!important;}
+.copy-right a {display: block; padding: 10px 0; color:var(--textColor);}
+.copy-right .webmilky{text-align: right;}

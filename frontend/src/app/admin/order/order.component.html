@@ -1,0 +1,26 @@
+<section class="bg-white order ms-2">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="title">Orders</h2>
+                 <ul class="queries">
+                    @for(data of userData; track $index){
+                        <li>
+                            <img width="100" src="{{data.uploadslip}}" alt="priscription">
+                            <span>{{data.name}}</span>
+                            <span>{{data.email}}</span>
+                            <span>{{data.phone}}</span>
+                            <span>{{data.whatsapp}}</span>
+                            <span>{{data.hospital}}</span>
+                            <span>{{data.address}}</span>
+                            <span>{{data.currState}}</span>
+                            <span>{{data.currCity}}</span>
+                            <span>{{data.pincode}}</span>  
+                        </li>
+                    }
+                    
+                 </ul>
+            </div>
+        </div>
+    </div>
+</section>

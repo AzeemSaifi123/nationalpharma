@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-header',
@@ -8,5 +9,14 @@ import { RouterLink } from '@angular/router';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
+
+  userService = inject(UserService);
+  showHeader:boolean = true;
+
+  ngOnInit(){
+    this.userService.showHeader.subscribe((res:any)=>{
+        this.showHeader = res;
+    });
+  }
 
 }

@@ -6,13 +6,9 @@
 }
 .prev{width: 100%;}
 
-.queries{
-    li { display: block;
-        span{display: inline-block; margin-right: 8px;}
-    }
-} 
 
-.submit-btn{ margin-bottom: 0;
+
+.submit-btn{ margin-bottom: 0; 
      position: fixed; left: 0; right: 0; bottom: 0; padding: 10px; z-index: 1; background: #fff;
      box-shadow: 10px 0 30px rgba(0, 0, 0, 0.2);
      .btn{min-width: 100%;}
@@ -23,7 +19,7 @@
         h1{font-size: 18px;}
     }
     .submit-btn{
-        all: inherit;
+        all: inherit; padding: 0;
         .btn{min-width: 160px;}
     }
 }
