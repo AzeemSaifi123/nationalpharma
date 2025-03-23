@@ -8,5 +8,9 @@ import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
-  images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
+  images = [
+    'images/slide-1.jpg',
+    'images/slide-2.jpg',
+    'images/slide-3.jpg'
+  ];
 }

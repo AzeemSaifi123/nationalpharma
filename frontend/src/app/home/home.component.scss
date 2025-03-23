@@ -41,3 +41,8 @@ footer{background:#214155; padding-top: 20px;}
 .copy-right{border-color: rgba(255, 255, 255, 0.1)!important;}
 .copy-right a {display: block; padding: 10px 0; color:var(--textColor);}
 .copy-right .webmilky{text-align: right;}
+
+.carousel{border-radius: 25px; overflow: hidden;}
+.picsum-img-wrapper{ overflow: hidden; border-radius: 25px;
+    img{object-fit: contain; border-radius: 25px;}
+}

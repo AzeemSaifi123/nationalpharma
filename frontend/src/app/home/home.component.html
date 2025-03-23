@@ -1,34 +1,22 @@
-<section>
-    <div class="container-fluid">
+<section class="top-space">
+    <div class="container">
         <div class="row">
             <div class="col-12">
                 @if (images) {
                     <ngb-carousel>
                         <ng-template ngbSlide>
                             <div class="picsum-img-wrapper">
-                                <img src="images/banner.jpg" alt="Random first slide" />
-                            </div>
-                            <div class="carousel-caption">
-                                <h3>First slide label</h3>
-                                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                                <img class="w-100" [src]="images[0]" alt="Random first slide" />
                             </div>
                         </ng-template>
                         <ng-template ngbSlide>
                             <div class="picsum-img-wrapper">
-                                <img src="images/banner.jpg" alt="Random first slide" />
-                            </div>
-                            <div class="carousel-caption">
-                                <h3>Second slide label</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <img class="w-100" [src]="images[0]" alt="Random first slide" />
                             </div>
                         </ng-template>
                         <ng-template ngbSlide>
                             <div class="picsum-img-wrapper">
-                                <img src="images/banner.jpg" alt="Random first slide" />
-                            </div>
-                            <div class="carousel-caption">
-                                <h3>Third slide label</h3>
-                                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                                <img class="w-100" [src]="images[0]" alt="Random first slide" />
                             </div>
                         </ng-template>
                     </ngb-carousel>
@@ -69,11 +57,35 @@
                     <h3 class="pro-code">Vitamin D06</h3>
                 </div>
             </div>
+            <div class="col-lg-3">
+                <div class="products mb-2">
+                    <img src="images/medicine-1.svg" alt="Medicine">
+                    <h3 class="pro-code">Vitamin B12</h3>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="products mb-2">
+                    <img src="images/medicine-2.svg" alt="Medicine">
+                    <h3 class="pro-code">Vitamin A07</h3>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="products mb-2">
+                    <img src="images/medicine-3.svg" alt="Medicine">
+                    <h3 class="pro-code">Vitamin C46</h3>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="products mb-5">
+                    <img src="images/medicine-1.svg" alt="Medicine">
+                    <h3 class="pro-code">Vitamin D06</h3>
+                </div>
+            </div>
         </div>
         
         <div class="row">
             <div class="col-lg-12 text-center mb-5">
-                <a href="products.html" class="btn more">Know More</a>
+                <a href="products.html" class="btn more btn-primary">Know More</a>
             </div>
         </div>
 
@@ -289,9 +301,9 @@
                               </a>
                           </li>
                           <li>
-                              <a class="d-flex align-items-start" href="mailto:vaxigenhealthcare@gmail.com">
+                              <a class="d-flex align-items-start" href="mailto:thenationalpharma@gmail.com">
                                   <img class="me-2" src="icons/envelope.svg" alt="envelope">
-                                  <span>vaxigenhealthcare&#64;gmail.com</span>
+                                  <span>thenationalpharma&#64;gmail.com</span>
                               </a>
                           </li>
                         </ul>
@@ -306,7 +318,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
-                    <a>All Copyright reserved by VaxiGen Health Care</a>
+                    <a>All Copyright reserved by The National Pharma</a>
                 </div>
                 <div class="col-lg-6 webmilky">
                     <a href="http://webmilky.com/" target="_blank">Created by webmilky</a>
